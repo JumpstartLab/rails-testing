@@ -31,12 +31,8 @@ describe Article do
 
     context "when the article has one tag" do
 
-      let(:tags) do
-        [ stub("Tag", name: "school") ]
-      end
-
       it "returns a string with the one tag" do
-        subject.stub(:tags).and_return(tags)
+        subject.tags.build name: 'school'
         expect(subject.tag_list).to eq "school"
       end
     end
