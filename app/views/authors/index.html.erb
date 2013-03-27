@@ -12,7 +12,7 @@
   </tr>
 
 <% @authors.each do |author| %>
-  <tr>
+  <tr id="<%= dom_id(author) %>">
     <td><%= author.username %></td>
     <td><%= author.email %></td>
     <td><%= author.password %></td>
