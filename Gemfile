@@ -29,6 +29,16 @@ group :test, :development do
   gem 'guard-rspec'
   gem 'rb-fsevent', '~> 0.9.1'
   gem 'capybara'
+
+  #
+  # The Selenium Web Driver version is dependent on the Firefox Version:
+  #
+  # http://stackoverflow.com/questions/7263564/unable-to-obtain-stable-firefox-connection-in-60-seconds-127-0-0-17055
+  #
+  gem 'selenium-webdriver', '2.31.0'
+  gem 'launchy'
+  gem 'faker'
+  gem 'database_cleaner'
 end
 
 # To use ActiveModel has_secure_password
