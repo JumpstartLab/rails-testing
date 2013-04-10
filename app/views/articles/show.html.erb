@@ -15,13 +15,13 @@
 
 <% if logged_in? %>
 <p class="article_actions">
-  <%= link_to "Edit", edit_article_path(@article) %>
+  <%= link_to "Edit", edit_blog_article_path(current_blog.path,@article) %>
 </p>
 <p class="article_actions">
-  <%= link_to "Delete", article_path(@article), 
+  <%= link_to "Delete", blog_article_path(current_blog.path,@article),
         method: 'delete', confirm: "Are you sure you want to delete?" %>
 </p>
 <% end %>
 <p class="article_actions">
-  <%= link_to "Back to Index", articles_path %>
+  <%= link_to "Back to Index", blog_articles_path(current_blog.path) %>
 </p>
