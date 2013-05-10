@@ -7,6 +7,10 @@
 <% end %>
 </ul>
 
+
+<%= render partial: 'top_article' %>
+
+
 <% if logged_in? %>
 <%= link_to "Create Article", new_article_path, class: "new_article" %>
 <% end %>

@@ -1,0 +1,6 @@
+<% cache('top-article',expires_in: 15.minutes) do %>
+<hr/>
+<div class='top-article'>
+  <%= @article_count %> Articles in our System
+<div>
+<% end %>

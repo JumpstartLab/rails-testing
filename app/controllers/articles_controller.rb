@@ -3,7 +3,15 @@ class ArticlesController < ApplicationController
   before_filter :require_login, except: [ :index, :show ]
 
   def index
-    @articles = Article.all
+    @articles = all_articles_cached
+    @article_count = Article.count
+  end
+
+  def all_articles_cached
+
+    Rails.cache.fetch(Cache.articles.all_key,expires_in: Cache.articles.all_time) do
+      Article.all
+    end
   end
 
   def show
@@ -17,6 +25,8 @@ class ArticlesController < ApplicationController
 
   def create
     @article = Article.create params[:article]
+
+    Rails.cache.delete('articles-all')
 
     if @article.valid?
       redirect_to article_path(@article)
